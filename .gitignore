@@ -1,0 +1,39 @@
+# Python
+
+__pycache__/
+
+*.py[cod]
+
+*.egg-info/
+
+.env
+
+venv/
+
+.venv/
+
+# Données lourdes 
+
+data/raw/
+
+data/processed/
+
+# Modèles sauvegardés 
+
+models/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# IDE
+
+.vscode/
+
+*.code-workspace
+
+# OS
+
+.DS_Store
+
+Thumbs.db
