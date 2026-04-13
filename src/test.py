@@ -13,7 +13,7 @@ print(f"  Scikit-learn: {__import__('sklearn').__version__}")
 print(f"  Matplotlib  : {__import__('matplotlib').__version__}")
 print("=" * 50)
 
-# ── 1. NumPy : génération de données de consommation simulées ──────────────
+# 1. NumPy : génération de données de consommation simulées 
 np.random.seed(42)
 heures = np.arange(0, 168)  # 1 semaine en heures
 
@@ -28,7 +28,7 @@ consommation[anomalies_idx] += np.random.uniform(15, 25, size=5)
 
 print("\n✅ NumPy OK — données simulées générées (168h, 5 anomalies injectées)")
 
-# ── 2. Pandas : mise en DataFrame et analyse ──────────────────────────────
+# 2. Pandas : mise en DataFrame et analyse
 dates = pd.date_range(start="2026-04-07", periods=168, freq="h")
 df = pd.DataFrame({
     "timestamp": dates,
@@ -43,7 +43,7 @@ moyenne_par_heure = df.groupby("heure")["consommation_kwh"].mean()
 print(f"\n✅ Pandas OK — DataFrame créé : {df.shape[0]} lignes × {df.shape[1]} colonnes")
 print(f"   Consommation moyenne : {stats['mean']} kWh | Max : {stats['max']} kWh")
 
-# ── 3. Scikit-learn : détection d'anomalies avec Isolation Forest ──────────
+# 3. Scikit-learn : détection d'anomalies avec Isolation Forest
 scaler = StandardScaler()
 X = scaler.fit_transform(df[["consommation_kwh", "heure"]])
 
@@ -55,7 +55,7 @@ n_anomalies = (df["anomalie"] == -1).sum()
 print(f"\n✅ Scikit-learn OK — IsolationForest exécuté")
 print(f"   Anomalies détectées : {n_anomalies} sur {len(df)} points")
 
-# ── 4. Matplotlib : visualisation ─────────────────────────────────────────
+# 4. Matplotlib : visualisation
 fig, axes = plt.subplots(2, 1, figsize=(14, 8))
 fig.suptitle("Test Environnement — Consommation Énergétique (simulée)", fontsize=14, fontweight="bold")
 
