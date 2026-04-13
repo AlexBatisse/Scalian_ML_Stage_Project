@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>Bienvenue sur le tableau de bord en temps réel.</p>
+  <div id="graphique" style="width:100%; height:400px;"></div>
+  <script>
+    // Exemple Plotly basique — sera remplacé par les vraies données
+    Plotly.newPlot('graphique', [{
+      x: ['00h','04h','08h','12h','16h','20h','24h'],
+      y: [5, 4, 8, 15, 18, 12, 6],
+      type: 'scatter', mode: 'lines+markers',
+      line: { color: '#4fc3f7' }, name: 'Consommation (kWh)'
+    }], { title: 'Consommation dernières 24h', paper_bgcolor: '#f4f4f4' });
+  </script>
+{% endblock %}

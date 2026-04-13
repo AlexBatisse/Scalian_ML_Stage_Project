@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titre }} — Energy Monitor</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #f4f4f4; }
+        nav { background: #1a1a2e; padding: 1rem 2rem; display: flex; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #4fc3f7; }
+        main { padding: 2rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/dashboard">📊 Dashboard</a>
+        <a href="/analyse">🔍 Analyse</a>
+        <a href="/alertes">🚨 Alertes</a>
+    </nav>
+    <main>
+        <h1>{{ titre }}</h1>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <form method="GET" action="/analyse" style="margin-bottom:1.5rem; display:flex; gap:1rem; align-items:center;">
+    <label>Du : <input type="date" name="date_debut" value="{{ date_debut }}"></label>
+    <label>Au : <input type="date" name="date_fin" value="{{ date_fin }}"></label>
+    <button type="submit">Analyser</button>
+  </form>
+  {% if date_debut and date_fin %}
+    <p>Analyse du <strong>{{ date_debut }}</strong> au <strong>{{ date_fin }}</strong></p>
+    <div id="graphique_periode" style="width:100%; height:400px;"></div>
+    <script>
+      Plotly.newPlot('graphique_periode', [{
+        x: ['{{ date_debut }}', '{{ date_fin }}'],
+        y: [10, 14],
+        type: 'scatter', mode: 'lines'
+      }], { title: 'Analyse sur la période sélectionnée' });
+    </script>
+  {% else %}
+    <p>Sélectionne une période pour lancer l'analyse.</p>
+  {% endif %}
+{% endblock %}
