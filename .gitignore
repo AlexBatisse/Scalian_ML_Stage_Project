@@ -12,15 +12,21 @@ venv/
 
 .venv/
 
-# Données lourdes 
+# Garder la structure des dossiers mais ignorer les gros fichiers de données
 
-data/raw/
+data/raw/*
 
-data/processed/
+data/processed/*
 
-# Modèles sauvegardés 
+!data/raw/.gitkeep
 
-models/
+!data/processed/.gitkeep
+
+# Garder la structure models/ mais ignorer les fichiers lourds
+
+models/*
+
+!models/.gitkeep
 
 # Jupyter
 
