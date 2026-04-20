@@ -24,9 +24,7 @@ data/processed/*
 
 # Garder la structure models/ mais ignorer les fichiers lourds
 
-models/*
 
-!models/.gitkeep
 
 # Jupyter
 
